@@ -1,0 +1,6 @@
+[package]
+name = "q-lang"
+version = "0.1.0"
+authors = ["oscar <druiventakoscar@gmail.com>"]
+
+[dependencies]
