@@ -11,13 +11,22 @@ pub enum TokenType {
 impl fmt::Display for TokenType {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match self {
-            NAME => write!(f, "NAME"),
+            TokenType::NAME => write!(f, "NAME"),
 
-            LBRACK => write!(f, "LBRACK"),
-            RBRACK => write!(f, "RBRACK"),
-            COMMA => write!(f, "COMMA"),
+            TokenType::LBRACK => write!(f, "LBRACK"),
+            TokenType::RBRACK => write!(f, "RBRACK"),
+            TokenType::COMMA => write!(f, "COMMA"),
 
-            EOF => write!(f, "EOF")
+            TokenType::EOF => write!(f, "EOF")
+        }
+    }
+}
+
+impl TokenType {
+    pub fn is_eof(&self) -> bool {
+        match *self {
+            TokenType::EOF => true,
+            _ => false
         }
     }
 }
