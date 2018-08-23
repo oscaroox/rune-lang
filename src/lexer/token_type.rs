@@ -1,5 +1,6 @@
 use std::fmt;
 
+#[derive(PartialEq)]
 pub enum TokenType {
     NAME,
     LBRACK,
@@ -18,15 +19,6 @@ impl fmt::Display for TokenType {
             TokenType::COMMA => write!(f, "COMMA"),
 
             TokenType::EOF => write!(f, "EOF")
-        }
-    }
-}
-
-impl TokenType {
-    pub fn is_eof(&self) -> bool {
-        match *self {
-            TokenType::EOF => true,
-            _ => false
         }
     }
 }
