@@ -1,19 +1,18 @@
 mod lexer;
 
-use lexer::token::Token;
-use lexer::token_type::TokenType;
 use lexer::scanner::Scanner;
+use lexer::token_type::TokenType;
 
 fn main() {
 
 
-    let lbrack = Token::new(TokenType::LBRACK, String::from("["));
-    let rbrack = Token::new(TokenType::RBRACK, String::from("]"));
+    let mut scanner = Scanner::new(String::from("[a, b, c]"));
+    
+    let mut token = scanner.next_token();
 
-    let scanner = Scanner::new(String::from("[a, b, c]"));
-  
-
-    println!("{}", lbrack);
-    println!("{}", rbrack);
+    while !token.id.is_eof() {
+        println!("{}", token);
+        token = scanner.next_token();
+    }
 }
 

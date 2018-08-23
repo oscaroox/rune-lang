@@ -3,7 +3,7 @@ use lexer::token_type::TokenType;
 
 
 pub struct Token {
-    id: TokenType,
+    pub id: TokenType,
     text: String
 }
 
