@@ -1,7 +1,6 @@
 mod lexer;
 
 use lexer::scanner::Scanner;
-use lexer::token_type::TokenType;
 
 fn main() {
 
