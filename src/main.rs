@@ -1,17 +1,19 @@
 mod lexer;
+mod parser;
 
 use lexer::scanner::Scanner;
+use parser::parser::Parser;
+use parser::list::ListParser;
 
 fn main() {
 
 
-    let mut scanner = Scanner::new(String::from("[a, b, c]"));
-    
-    let mut token = scanner.next_token();
+    let scanner = Scanner::new(String::from("[a, b, [a, b, c, d]]"));
 
-    while !token.id.is_eof() {
-        println!("{}", token);
-        token = scanner.next_token();
-    }
+    let mut parser = Parser::new(scanner);
+
+    let mut list_parser = ListParser::new(&mut parser);
+
+    list_parser.parse();
 }
 
