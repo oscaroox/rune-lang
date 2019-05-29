@@ -2,13 +2,14 @@ mod lexer;
 mod parser;
 
 use lexer::scanner::Scanner;
-use parser::parser::Parser;
 use parser::list::ListParser;
+use parser::parser::Parser;
 
 fn main() {
 
+    let input = String::from("[a, b, [a, b, c, d]]");
 
-    let scanner = Scanner::new(String::from("[a, b, [a, b, c, d]]"));
+    let scanner = Scanner::new(input);
 
     let mut parser = Parser::new(scanner);
 
